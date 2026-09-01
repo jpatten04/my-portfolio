@@ -16,12 +16,12 @@ export default function Home() {
 				<div className="flex gap-4">
 					<div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:brightness-60 transition-all cursor-pointer">
 						<a href="https://github.com/jpatten04" target="_blank">
-							<img src="/src/assets/icons/github-icon.png" />
+							<img src={import.meta.env.BASE_URL + "assets/icons/github-icon.png"} />
 						</a>
 					</div>
 					<div className="w-12 h-12 rounded-full border border-white/10 flex items-center justify-center hover:brightness-60 transition-all cursor-pointer">
 						<a href="https://www.linkedin.com/in/jake-patten" target="_blank">
-							<img src="/src/assets/icons/linkedin-icon.png" />
+							<img src={import.meta.env.BASE_URL + "assets/icons/linkedin-icon.png"} />
 						</a>
 					</div>
 				</div>

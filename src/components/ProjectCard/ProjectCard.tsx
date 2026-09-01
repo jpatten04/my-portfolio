@@ -6,9 +6,10 @@ interface Props {
 	description: string;
 	techStack: string[];
 	githubLink: string;
+	demoLink: string;
 }
 
-export default function ProjectCard({ title, imgUrls, description, techStack, githubLink }: Props) {
+export default function ProjectCard({ title, imgUrls, description, techStack, githubLink, demoLink }: Props) {
 	const [isActive, setIsActive] = useState<boolean>(false);
 	const [currentImgIndex, setCurrentImgIndex] = useState<number>(0);
 
@@ -106,20 +107,33 @@ export default function ProjectCard({ title, imgUrls, description, techStack, gi
 						<div className="flex flex-col gap-6">
 							<div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
 								<h1 className="text-5xl md:text-7xl font-bold tracking-tighter">{title}</h1>
-								<a
-									href={githubLink}
-									target="_blank"
-									rel="noopener noreferrer"
-									className="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-neutral-200 transition-all active:scale-95"
-									onClick={(e) => e.stopPropagation()}
-								>
-									View Source Code
-								</a>
+								<div className="flex gap-3">
+									<a
+										href={githubLink}
+										target="_blank"
+										rel="noopener noreferrer"
+										className="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-neutral-200 transition-all active:scale-95"
+										onClick={(e) => e.stopPropagation()}
+									>
+										GitHub
+									</a>
+									{demoLink && (
+										<a
+											href={demoLink}
+											target="_blank"
+											rel="noopener noreferrer"
+											className="bg-white text-black px-8 py-3 rounded-full font-bold hover:bg-neutral-200 transition-all active:scale-95"
+											onClick={(e) => e.stopPropagation()}
+										>
+											Demo
+										</a>
+									)}
+								</div>
 							</div>
 							<p className="text-xl text-neutral-400 max-w-3xl leading-relaxed">{description}</p>
 							<div className="flex flex-col gap-4">
 								<h4 className="text-xs uppercase tracking-[0.3em] text-neutral-500 font-bold">
-									Technologies
+									Tech Stack
 								</h4>
 								<div className="flex gap-3 flex-wrap">
 									{techStack.map((t) => (
@@ -134,8 +148,8 @@ export default function ProjectCard({ title, imgUrls, description, techStack, gi
 							</div>
 						</div>
 					</div>
-					<button className="absolute top-10 right-10 text-white/50 hover:text-white transition-colors uppercase tracking-[0.3em] text-xs">
-						Close
+					<button className="absolute top-10 right-10 text-white/50 hover:text-white transition-colors uppercase tracking-[0.3em] text-3xl cursor-pointer">
+						✕
 					</button>
 				</div>
 			)}
